@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Inter:wght@400;700&family=JetBrains+Mono&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+@layer base {
+  body {
+    @apply h-screen overflow-hidden select-none bg-[#008080];
+  }
+}
+
+@layer utilities {
+  .retro-bevel-out {
+    box-shadow: inset 1px 1px #ffffff, inset -1px -1px #0a0a0a, 1px 1px #808080;
+    @apply border-t border-l border-white border-b border-r-[#808080] bg-[#c0c0c0];
+  }
+
+  .retro-bevel-in {
+    box-shadow: inset 1px 1px #808080, inset -1px -1px #ffffff;
+    @apply border-t border-l-[#808080] border-b border-white bg-white;
+  }
+
+  .window-shadow {
+    box-shadow: 2px 2px 0px 0px rgba(0,0,0,1);
+  }
+
+  .dither-bg {
+    background-image: radial-gradient(#ffffff 1px, transparent 1px), radial-gradient(#ffffff 1px, transparent 1px);
+    background-size: 4px 4px;
+    background-position: 0 0, 2px 2px;
+    background-color: #c0c0c0;
+  }
+
+  .marquee-track {
+    display: inline-block;
+    white-space: nowrap;
+    animation: marquee-scroll 18s linear infinite;
+  }
+}
+
+@keyframes marquee-scroll {
+  from { transform: translateX(100%); }
+  to   { transform: translateX(-100%); }
+}
+
+.win95-title-bar {
+  background: linear-gradient(90deg, #000080, #1084d0);
+}
+
+.win95-title-bar-inactive {
+  background: #808080;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 16px;
+}
+
+::-webkit-scrollbar-track {
+  background-image: radial-gradient(#c0c0c0 25%, transparent 25%), radial-gradient(#ffffff 25%, transparent 25%);
+  background-position: 0 0, 2px 2px;
+  background-size: 4px 4px;
+  background-color: #dfdfdf;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #c0c0c0;
+  border-top: 2px solid #fff;
+  border-left: 2px solid #fff;
+  border-right: 2px solid #808080;
+  border-bottom: 2px solid #808080;
+  box-shadow: inset 1px 1px #dfdfdf;
+}
