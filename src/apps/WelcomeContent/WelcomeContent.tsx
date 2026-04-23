@@ -55,14 +55,14 @@ export default function WelcomeContent() {
             <br />I specialize in Angular, React, TypeScript, PostgreSQL and
             high-performance pixels.
           </p>
-          <div className="flex gap-2 mt-2">
-            <button className="px-4 py-1 bg-[#a63004] text-white font-display text-[12px] font-bold uppercase retro-bevel-out active:retro-bevel-in active:translate-x-px active:translate-y-px">
-              Hire Me
-            </button>
-            <button className="px-4 py-1 bg-[#c0c0c0] text-black font-display text-[12px] font-bold uppercase retro-bevel-out active:retro-bevel-in active:translate-x-px active:translate-y-px">
-              Resumé
-            </button>
-          </div>
+          {/* <div className="flex gap-2 mt-2"> */}
+          {/*   <button className="px-4 py-1 bg-[#a63004] text-white font-display text-[12px] font-bold uppercase retro-bevel-out active:retro-bevel-in active:translate-x-px active:translate-y-px"> */}
+          {/*     Hire Me */}
+          {/*   </button> */}
+          {/*   <button className="px-4 py-1 bg-[#c0c0c0] text-black font-display text-[12px] font-bold uppercase retro-bevel-out active:retro-bevel-in active:translate-x-px active:translate-y-px"> */}
+          {/*     Resumé */}
+          {/*   </button> */}
+          {/* </div> */}
         </div>
       </div>
 
