@@ -21,7 +21,7 @@ interface StartButtonProps {
 const menuItems = [
   { id: "welcome", title: "Welcome Bio", icon: Monitor },
   // { id: 'projects', title: 'Projects Gallery', icon: FolderOpen },
-  // { id: 'logs', title: 'System Logs', icon: FileText },
+  { id: 'logs', title: 'System Logs', icon: FileText },
   { divider: true },
   { id: "shutdown", title: "Shutdown...", icon: X },
 ] as const;

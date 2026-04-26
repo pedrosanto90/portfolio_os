@@ -3,12 +3,15 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { Monitor, FolderOpen, FileText } from 'lucide-react';
 import type { WindowState } from './types';
 import WelcomeContent from './apps/WelcomeContent';
 import ProjectsContent from './apps/ProjectsContent';
 import LogsContent from './apps/LogsContent';
+import PostContent from './apps/PostContent';
+import type { BlogPost } from './apps/LogsContent/posts';
+import { WindowManagerContext, type WindowManager } from './WindowManagerContext';
 import Header from './components/Header';
 import Desktop from './components/Desktop';
 import Taskbar from './components/Taskbar';
@@ -51,7 +54,37 @@ export default function App() {
     setActiveWindowId(id);
   };
 
+  const openPostWindow = useCallback((post: BlogPost) => {
+    const id = `post-${post.id}`;
+    setWindows(prev => {
+      const maxZ = Math.max(...prev.map(w => w.zIndex), 0);
+      if (prev.some(w => w.id === id)) {
+        return prev.map(w =>
+          w.id === id
+            ? { ...w, isOpen: true, isMinimized: false, zIndex: maxZ + 1 }
+            : w
+        );
+      }
+      return [
+        ...prev,
+        {
+          id,
+          title: post.title,
+          icon: FileText,
+          isOpen: true,
+          isMinimized: false,
+          zIndex: maxZ + 1,
+          content: <PostContent post={post} />,
+        },
+      ];
+    });
+    setActiveWindowId(id);
+  }, []);
+
+  const windowManager = useMemo<WindowManager>(() => ({ openPostWindow }), [openPostWindow]);
+
   return (
+    <WindowManagerContext.Provider value={windowManager}>
     <div className="relative w-full h-screen overflow-hidden flex flex-col font-sans">
       {/* Background */}
       <div className="absolute inset-0 z-0 text-white">
@@ -85,5 +118,6 @@ export default function App() {
         onToggleMinimize={toggleMinimize}
       />
     </div>
+    </WindowManagerContext.Provider>
   );
 }

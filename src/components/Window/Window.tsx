@@ -25,8 +25,8 @@ export default function Window({ win, onClose, onMinimize, onFocus, isActive }: 
       onMouseDown={onFocus}
       initial={{ scale: 0.95, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
-      className="absolute bg-[#c0c0c0] p-0.5 retro-bevel-out window-shadow flex flex-col min-w-75"
-      style={{ zIndex: win.zIndex }}
+      className="absolute left-1/2 top-1/2 bg-[#c0c0c0] p-0.5 retro-bevel-out window-shadow flex flex-col min-w-75 max-h-[80vh] max-w-[90vw]"
+      style={{ zIndex: win.zIndex, translate: '-50% -50%' }}
     >
       <div className={`${isActive ? 'win95-title-bar' : 'win95-title-bar-inactive'} flex justify-between items-center px-1 py-0.5 mb-1 cursor-default`}>
         <div className="flex items-center gap-1">
