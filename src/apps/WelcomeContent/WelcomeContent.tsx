@@ -4,14 +4,43 @@
  */
 
 import { Waves } from "lucide-react";
+import { useEffect, useState } from "react";
+
+import openMeteo from "./openMeteo";
 
 export default function WelcomeContent() {
+  const [forecast, setForecast] = useState<any>(null);
+  const [currentTime, setCurrentTime] = useState(new Date());
+  const [currentSwell, setCurrentSwell] = useState<number | null>(null);
+
+  const dateNow = new Date();
+
+  useEffect(() => {
+    openMeteo().then(setForecast);
+  }, []);
+
+  useEffect(() => {
+    dateNow.setHours(dateNow.getHours());
+    setCurrentTime(dateNow);
+  }, []);
+
+  useEffect(() => {
+    if (!forecast) return;
+    const key = currentTime.toISOString().slice(0, 13);
+    const i = forecast.time.findIndex((t: Date) =>
+      t.toISOString().startsWith(key),
+    );
+
+    if (i !== -1) setCurrentSwell(forecast.wave_height[i].toFixed(2));
+  }, [forecast, currentTime]);
+
+  console.log("Fetching weather data...", forecast);
   return (
     <div className="p-4 flex flex-col gap-4 text-on-surface">
       <div className="bg-black text-[#008080] p-2 retro-bevel-in overflow-hidden font-mono text-sm">
         <span className="marquee-track">
-          WELCOME TO SURF_PORT OS! STATUS: HANGING TEN | CURRENT SWELL: 6FT &
-          GLASSY | SYSTEM READY...
+          WELCOME TO SURF_PORT OS! STATUS: HANGING TEN | CURRENT SWELL:{" "}
+          {currentSwell}m & GLASSY | SYSTEM READY...
         </span>
       </div>
 
@@ -28,7 +57,9 @@ export default function WelcomeContent() {
             <h1 className="font-display font-bold text-sm text-[#000080]">
               Loc:
             </h1>
-            <p className="font-display text-sm text-[#000080]">Ericeira</p>
+            <p className="font-display text-sm text-[#000080]">
+              Ericeira, Lisbon, PT
+            </p>
           </div>
 
           <div className="flex flex-row gap-2">

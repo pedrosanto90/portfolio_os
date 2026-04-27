@@ -6,10 +6,8 @@
 import {
   Menu,
   Monitor,
-  FolderOpen,
   FileText,
-  X,
-  ChevronRight,
+  Info,
 } from "lucide-react";
 
 interface StartButtonProps {
@@ -20,10 +18,11 @@ interface StartButtonProps {
 
 const menuItems = [
   { id: "welcome", title: "Welcome Bio", icon: Monitor },
+  { divider: true },
   // { id: 'projects', title: 'Projects Gallery', icon: FolderOpen },
   { id: 'logs', title: 'System Logs', icon: FileText },
-  { divider: true },
-  { id: "shutdown", title: "Shutdown...", icon: X },
+  // { id: 'info', title: 'System Info', icon: Info },
+  // { id: "shutdown", title: "Shutdown...", icon: X },
 ] as const;
 
 export default function StartButton({
@@ -68,9 +67,9 @@ export default function StartButton({
                     <span className="text-[12px] font-display font-bold">
                       {item.title}
                     </span>
-                    {item.id !== "shutdown" && (
+                    {/* {item.id !== "shutdown" && (
                       <ChevronRight className="ml-auto w-3 h-3 text-[#808080] group-hover:text-white" />
-                    )}
+                    )} */}
                   </button>
                 ),
               )}
