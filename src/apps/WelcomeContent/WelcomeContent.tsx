@@ -72,7 +72,7 @@ export default function WelcomeContent() {
             <h1 className="font-display font-bold text-sm text-[#000080]">
               Exp:
             </h1>
-            <p className="font-display text-sm text-[#000080]">V.0.7 Years</p>
+            <p className="font-display text-sm text-[#000080]">V1.0Y</p>
           </div>
         </div>
         <div className="flex flex-col gap-2 mt-1 retro-bevel-out retro-bevel-in window-shadow p-2">
