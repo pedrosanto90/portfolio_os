@@ -3,12 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import {
-  Menu,
-  Monitor,
-  FileText,
-  Info,
-} from "lucide-react";
+import { Menu, Monitor, FileText, Info, FolderOpen } from "lucide-react";
 
 interface StartButtonProps {
   isOpen: boolean;
@@ -19,8 +14,8 @@ interface StartButtonProps {
 const menuItems = [
   { id: "welcome", title: "Welcome Bio", icon: Monitor },
   { divider: true },
-  // { id: 'projects', title: 'Projects Gallery', icon: FolderOpen },
-  { id: 'logs', title: 'System Logs', icon: FileText },
+  { id: "projects", title: "Projects Gallery", icon: FolderOpen },
+  { id: "logs", title: "System Logs", icon: FileText },
   // { id: 'info', title: 'System Info', icon: Info },
   // { id: "shutdown", title: "Shutdown...", icon: X },
 ] as const;

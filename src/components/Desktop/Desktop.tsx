@@ -34,8 +34,16 @@ export default function Desktop({
           icon={Monitor}
           onClick={() => onOpenWindow("welcome")}
         />
-        {/* <DesktopIcon label="The Lineup" icon={Users} onClick={() => onOpenWindow('projects')} /> */}
-        <DesktopIcon label="Waves" icon={Waves} onClick={() => onOpenWindow('logs')} />
+        <DesktopIcon
+          label="The Lineup"
+          icon={Users}
+          onClick={() => onOpenWindow("projects")}
+        />
+        <DesktopIcon
+          label="Waves"
+          icon={Waves}
+          onClick={() => onOpenWindow("logs")}
+        />
         {/* <DesktopIcon label="Trash" icon={Trash2} onClick={() => {}} /> */}
       </div>
 

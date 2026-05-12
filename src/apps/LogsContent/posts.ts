@@ -11,22 +11,22 @@ export interface BlogPost {
   path: string;
 }
 
-const rawPosts = import.meta.glob('./posts/*.md', {
-  query: '?raw',
-  import: 'default',
+const rawPosts = import.meta.glob("./posts/*.md", {
+  query: "?raw",
+  import: "default",
   eager: true,
 }) as Record<string, string>;
 
 export const posts: BlogPost[] = [
   {
-    id: 'first-wave',
-    title: 'SURF_SWELL_SYNC',
-    date: '2026-04-26',
-    excerpt: 'The First One',
-    path: './posts/first-wave.md',
+    id: "first-wave",
+    title: "SURF_SWELL_SYNC",
+    date: "2026-04-26",
+    excerpt: "The First One",
+    path: "./posts/first-wave.md",
   },
 ];
 
 export function getPostBody(post: BlogPost): string {
-  return rawPosts[post.path] ?? '';
+  return rawPosts[post.path] ?? "";
 }
