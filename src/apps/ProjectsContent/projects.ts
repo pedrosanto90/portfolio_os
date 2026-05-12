@@ -20,6 +20,7 @@ export const projects: Project[] = [
     description:
       "A project to explore more about RxJS and Angular using the TMDB API.",
     gh_link: "https://github.com/pedrosanto90/tmdb-explorer",
+    ws_link: "https://pedrosanto90.github.io/tmdb-explorer",
     tag: "V1",
   },
 ];
