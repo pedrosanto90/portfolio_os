@@ -33,14 +33,16 @@ export default function ProjectsContent() {
               {project.name}
             </h3>
             <p className="text-[10px] my-1 grow">{project.description}</p>
-            <a
-              href={project.gh_link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-2 w-full py-0.5 bg-[#c0c0c0] border-t border-l border-white border-b border-r font-display text-[10px] font-bold uppercase text-center text-black no-underline"
-            >
-              GitHub Repo
-            </a>
+            {project.gh_link && (
+              <a
+                href={project.gh_link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-2 w-full py-0.5 bg-[#c0c0c0] border-t border-l border-white border-b border-r font-display text-[10px] font-bold uppercase text-center text-black no-underline"
+              >
+                GitHub Repo
+              </a>
+            )}
             {project.ws_link && (
               <a
                 href={project.ws_link}
