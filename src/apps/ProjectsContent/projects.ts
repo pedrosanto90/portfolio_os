@@ -31,4 +31,12 @@ export const projects: Project[] = [
     ws_link: "https://live-soccer.pedroesanto.com",
     tag: "V1",
   },
+  {
+    id: "dot-files",
+    name: "MY_DOTFILES",
+    description:
+      "This is a dev env. A script to run in a base Debian System to install all the things i need for my work as a web developer.",
+    gh_link: "https://github.com/pedrosanto90/.dotfiles_v2",
+    tag: "V1",
+  },
 ];
